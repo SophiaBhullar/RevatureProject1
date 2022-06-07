@@ -10,7 +10,7 @@ from models.login_dto import Login
 #read user login
 
 
-def select_user_by_username(cust_name):
+""" def select_user_by_username(cust_name):
     connection = get_connection()
     cursor = connection.cursor()
 
@@ -35,7 +35,7 @@ def select_user_by_username(cust_name):
         if connection is not None:
             connection.close()
 
-
+ """
 def select_user_by_designation(designation,emp_name,emp_pass):
     connection = get_connection()
     cursor = connection.cursor()
@@ -91,11 +91,11 @@ def select_user(emp_name,emp_pass):
             connection.close()
 
 
-def select_user_by_id(cust_id):
+def select_user_by_id(emp_id):
     connection = get_connection()
     cursor = connection.cursor()
 
-    qry = f"SELECT * FROM cust_login where cust_id = {cust_id};"
+    qry = f"SELECT * FROM employee where emp_id = {emp_id};"
 
     try:
         cursor.execute(qry)
@@ -104,13 +104,36 @@ def select_user_by_id(cust_id):
             record = cursor.fetchone()
             if record is None:
                 break
-            user_login = Login(record[0],record[1], record[2])
+            user_login = Login(record[0], record[1], record[2], record[3], record[4], record[5], record[6], record[7])
+
             return user_login
 
     
 
     except(psycopg2.DatabaseError) as error:
         print(error)
+
+    finally:
+        if connection is not None:
+            connection.close()
+
+
+def insert_emp(emp_name, emp_pass):
+    connection = get_connection()
+    cursor = connection.cursor()
+    
+    #create a user
+    qry = "INSERT INTO employee VALUES (default, %s, %s) RETURNING emp_id;"
+
+    try:
+        cursor.execute(qry, (emp_name,emp_pass))
+        id = cursor.fetchone()[0]
+        connection.commit()
+        return id
+
+    except(psycopg2.DatabaseError) as error:
+        print(error)
+        connection.rollback()
 
     finally:
         if connection is not None:

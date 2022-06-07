@@ -1,5 +1,6 @@
 from flask import Flask, render_template,request
-from controller.login_controller import check_cust_login, get_empLogin_page, get_managerLogin_page
+from controller.login_controller import get_empLogin_page, get_managerLogin_page,check_emp_login,check_manager_login
+from controller.request_controller import register_request
 
 
 app = Flask(__name__)
@@ -16,7 +17,7 @@ def empLogin_page():
 
 @app.route('/emplogin/input', methods=["POST"])
 def cust_empLogin():
-    return check_cust_login(request.form)
+    return check_emp_login(request.form)
 
 @app.route('/managerLogin', methods=["GET"])
 def login_page():
@@ -25,7 +26,13 @@ def login_page():
 
 @app.route('/managerLogin/input', methods=["POST"])
 def cust_managerLogin():
-    return check_cust_login(request.form)
+    return check_manager_login(request.form)
+
+
+@app.route('/fillrequest/request', methods=["POST"])
+def register_new_user():
+    return register_request(request.form)
+
 
 if __name__ == "__main__":
     app.run(debug=True)

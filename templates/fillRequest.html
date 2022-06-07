@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fill Request</title>
+</head>
+<body>
+    <h2>Fill Request Form</h2>
+    <form action="http://127.0.0.1:5000/fillrequest/request" method="post">
+        <label for="emp_id">Employee ID</label>
+        <br>
+        <input type="text" id="emp_id" name="emp_id"><br>
+
+        <label for="description">Description</label>
+        <br>
+        <input type="text" id="description" name="description"><br>
+
+        <label for="amount">Amount</label>
+        <br>
+        <input type="text" id="amount" name="amount"><br>
+
+        <label for="status">Status</label>
+        <br>
+        <input type="text" id="status" name="status"><br>
+
+        <label for="comments">Comments</label>
+        <br>
+        <input type="text" id="comments" name="comments"><br>
+
+        <input type="submit" value="Submit">
+
+    </form>
+</body>
+</html>
