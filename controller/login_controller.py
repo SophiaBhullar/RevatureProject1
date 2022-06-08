@@ -1,4 +1,4 @@
-from flask import render_template
+from flask import render_template,session
 from service.login_service import check_login 
 
 def get_empLogin_page():
@@ -14,6 +14,7 @@ def check_emp_login(login_input):
     if user_login is None:
         return "Failed Login"
     else:
+        session['emp_id'] = user_login.emp_id
         return render_template("fillRequest.html")
 
 

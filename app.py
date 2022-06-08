@@ -1,10 +1,10 @@
 from flask import Flask, render_template,request
 from controller.login_controller import get_empLogin_page, get_managerLogin_page,check_emp_login,check_manager_login
-from controller.request_controller import register_request
+from controller.request_controller import register_request, view_request
 
 
 app = Flask(__name__)
-
+app.secret_key="XYZ"
 
 @app.route('/', methods=["GET"])
 def landing_page():
@@ -33,6 +33,9 @@ def cust_managerLogin():
 def register_new_user():
     return register_request(request.form)
 
+@app.route('/viewRequests', methods=["GET"])
+def view_requests():
+    return view_request()
 
 if __name__ == "__main__":
     app.run(debug=True)
