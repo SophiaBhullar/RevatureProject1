@@ -1,5 +1,4 @@
 
-
 from urllib.request import Request
 import psycopg2
 from models.login_dto import Login
@@ -42,6 +41,35 @@ def select_requests(emp_id):
         
             while True:
                 record = cursor.fetchall()
+                if record is None:
+                    break
+                print(record)
+                return record
+
+
+        except(psycopg2.DatabaseError) as error:
+            print(error)
+
+        finally:
+            if connection is not None:
+                connection.close()
+
+
+def delete_requests(req_id):
+        connection = get_connection()
+        cursor = connection.cursor()
+
+        #delete requests from database
+
+        qry = f"DELETE FROM requests WHERE req_id ='{req_id}';"
+
+        try:
+            cursor.execute(qry)
+
+            while True:
+                # record = cursor.fetchone()
+                connection.commit()
+                record=cursor.rowcount
                 if record is None:
                     break
                 print(record)

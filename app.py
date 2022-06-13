@@ -1,6 +1,6 @@
 from flask import Flask, render_template,request
 from controller.login_controller import get_empLogin_page, get_managerLogin_page,check_emp_login,check_manager_login
-from controller.request_controller import register_request, view_request
+from controller.request_controller import delete_request, register_request, view_request
 
 
 app = Flask(__name__)
@@ -36,6 +36,13 @@ def register_new_user():
 @app.route('/viewRequests', methods=["GET"])
 def view_requests():
     return view_request()
+
+@app.route('/viewRequests/delete', methods=["POST"])
+def request_delete():
+    req_id=request.form['req_to_delete']
+    print(req_id)
+    return delete_request(req_id)
+
 
 if __name__ == "__main__":
     app.run(debug=True)
