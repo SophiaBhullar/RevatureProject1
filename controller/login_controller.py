@@ -1,4 +1,6 @@
 from flask import render_template,session
+from controller.request_controller import mngrViewRequests
+from repository.request_dao import select_all_requests
 from service.login_service import check_login 
 
 def get_empLogin_page():
@@ -23,4 +25,4 @@ def check_manager_login(login_input):
     if user_login is None:
         return "Failed Login"
     else:
-        return "Success"
+        return mngrViewRequests()

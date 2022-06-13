@@ -1,6 +1,6 @@
 from flask import Flask, render_template,request
-from controller.login_controller import get_empLogin_page, get_managerLogin_page,check_emp_login,check_manager_login
-from controller.request_controller import delete_request, register_request, view_request
+from controller.login_controller import check_manager_login, get_empLogin_page, get_managerLogin_page,check_emp_login
+from controller.request_controller import accept_request, decline_request, delete_request, register_request, view_request
 
 
 app = Flask(__name__)
@@ -42,6 +42,19 @@ def request_delete():
     req_id=request.form['req_to_delete']
     print(req_id)
     return delete_request(req_id)
+
+@app.route('/managerLogin/input/accept', methods=["POST"])
+def request_accept():
+    req_id = request.form['req_to_accept']
+    print(req_id)
+    return accept_request(req_id)
+
+
+@app.route('/managerLogin/input/decline', methods=["POST"])
+def request_decline():
+    req_id = request.form['req_to_decline']
+    print(req_id)
+    return decline_request(req_id)
 
 
 if __name__ == "__main__":

@@ -1,7 +1,7 @@
 
 
 from flask import render_template,session
-from repository.request_dao import delete_requests, select_requests
+from repository.request_dao import delete_requests, select_all_requests, select_requests, update_requests
 from service.request_service import create_request
 
 
@@ -10,8 +10,7 @@ def register_request(register_input):
     req_id = create_request(register_input)
         #return success
     if req_id is not None:
-        session['req_id'] = req_id.req_id
-        return render_template("empLogin.html")
+        return render_template("fillRequest.html")
 
     else:
         return "Failed"
@@ -24,7 +23,22 @@ def view_request():
     return render_template("viewRequests.html",allRequests=requests)
 
 
+def mngrViewRequests():
+    req = select_all_requests()
+    print(req)
+    return render_template("mngrViewrequests.html",allRequests=req)
+
+
 def delete_request(req_id):
     delete = delete_requests(req_id)
     return view_request()
      
+
+def accept_request(req_id):
+    accept = update_requests(req_id,"Approved","Payment made")
+    return mngrViewRequests()
+    
+
+def decline_request(req_id):
+    decline = update_requests(req_id,"Declined","Payment Refused")
+    return mngrViewRequests()

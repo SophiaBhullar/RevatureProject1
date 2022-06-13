@@ -55,6 +55,34 @@ def select_requests(emp_id):
                 connection.close()
 
 
+
+def select_all_requests():
+        connection = get_connection()
+        cursor = connection.cursor()
+
+        #select all requests from database
+
+        qry = f"SELECT * FROM requests;"
+
+        try:
+            cursor.execute(qry)
+        
+            while True:
+                record = cursor.fetchall()
+                if record is None:
+                    break
+                print(record)
+                return record
+
+
+        except(psycopg2.DatabaseError) as error:
+            print(error)
+
+        finally:
+            if connection is not None:
+                connection.close()
+
+
 def delete_requests(req_id):
         connection = get_connection()
         cursor = connection.cursor()
@@ -62,6 +90,35 @@ def delete_requests(req_id):
         #delete requests from database
 
         qry = f"DELETE FROM requests WHERE req_id ='{req_id}';"
+
+        try:
+            cursor.execute(qry)
+
+            while True:
+                # record = cursor.fetchone()
+                connection.commit()
+                record=cursor.rowcount
+                if record is None:
+                    break
+                print(record)
+                return record
+
+
+        except(psycopg2.DatabaseError) as error:
+            print(error)
+
+        finally:
+            if connection is not None:
+                connection.close()
+
+
+def update_requests(req_id,status,comments):
+        connection = get_connection()
+        cursor = connection.cursor()
+
+        #update requests from database
+
+        qry = f"UPDATE requests SET status = '{status}', comments = '{comments}' WHERE req_id ='{req_id}';"
 
         try:
             cursor.execute(qry)
