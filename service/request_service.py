@@ -1,5 +1,11 @@
 
 from repository.request_dao import insert_request_info
+from service.validation_service import validate_req
+
+
+def validate_requests(input_dict):
+    return validate_req((input_dict["emp_id"], input_dict["description"],input_dict["amount"],input_dict["status"],input_dict["comments"]))
+       
 
 
 

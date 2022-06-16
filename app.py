@@ -53,7 +53,6 @@ def request_accept():
 @app.route('/managerLogin/input/decline', methods=["POST"])
 def request_decline():
     req_id = request.form['req_to_decline']
-    print(req_id)
     return decline_request(req_id)
 
 

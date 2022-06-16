@@ -11,25 +11,25 @@
     <form action="http://127.0.0.1:5000/fillrequest/request" method="post">
         <label for="emp_id">Employee ID</label>
         <br>
-        <input type="text" id="emp_id" name="emp_id"><br>
+        <input type="text" id="emp_id" name="emp_id" required><br>
 
         <label for="description">Description</label>
         <br>
-        <input type="text" id="description" name="description"><br>
+        <input type="text" id="description" name="description" required><br>
 
         <label for="amount">Amount</label>
         <br>
-        <input type="text" id="amount" name="amount"><br>
+        <input type="text" id="amount" name="amount" required><br>
 
         <label for="status">Status</label>
         <br>
-        <input type="text" id="status" name="status"><br>
+        <input type="text" id="status" name="status" required><br>
 
         <label for="comments">Comments</label>
         <br>
-        <input type="text" id="comments" name="comments"><br>
+        <input type="text" id="comments" name="comments" required><br><br>
 
-        <input type="submit" value="Submit">
+        <button onclick="myFunction()">Submit</button>
     </form>
         <br><br>
 
@@ -38,6 +38,12 @@
                     <button>View Requests</button>
             </div>
         </a>
-    
+
+    <script>
+        function myFunction(){
+            alert("Request submitted successfully!");
+        }
+    </script>
+
 </body>
 </html>
