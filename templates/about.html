@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>{% block title %} {% endblock %} Expense Reimbursement System</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="static/main.css">
+  {% extends 'base.html' %}
+</head>
+<title>Expense Reimbursement System</title>
+
+<body>
+    {% block content %}
+<div class="container">
+    <br><br>
+<h1 style="font-size:larger; font-family:cursive;"><b>Employees are able to:</b></h1>
+<ul>
+    <li>Login to their account with a unique username and a password</li>
+    <li>Submit reimbursement requests with a description and a dollar amount</li>
+    <li>See ongoing and previous requests</li>
+    <li>Cancel ongoing requests</li>
+</ul>
+
+<h1 style="font-size:larger; font-family:cursive;"><b>Managers are able to:</b></h1>
+<ul>
+    <li>Login to their account with a unique username and a password</li>
+    <li>Submit reimbursement requests with a description and a dollar amount</li>
+    <li>See ongoing and previous requests</li>
+    <li>Approve / decline reimbursement requests</li>
+</ul>
+
+  {% endblock %}
+</div>
+</body>
+</html>

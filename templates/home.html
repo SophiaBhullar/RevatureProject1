@@ -1,23 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
+  <title>{% block title %} {% endblock %}Expense Reimbursement System</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="static/main.css">
+  {% extends 'base.html' %}
 </head>
+<title>Expense Reimbursement System</title>
+
 <body>
-    <a href="http://127.0.0.1:5000/emplogin">
-        <div>Employee login</h4>
-        </div>
-    </a>
+    {% block content %}
+<div class="container"><br>
+ 
+ <h1 style="font-family:cursive; text-align: center; font-size:xx-large;"><b>Welcome to our Expense Reimbursement System</b></h1>
+ <br><br>
+<div class="col-md-12">
+<section id="home">
+  <!-- Carousel -->
+  <div id="main-slide" class="carousel slide" data-ride="carousel">
 
-    <br><br><br>
+  <!---->  <!-- Indicators -->
+   <!-- <ol class="carousel-indicators">
+      <li data-target="#main-slide" data-slide-to="0" class="active"></li>
+      <li data-target="#main-slide" data-slide-to="1" class=""></li>
+      <li data-target="#main-slide" data-slide-to="2" class=""></li>
+    </ol>-->
+    <!--/ Indicators end-->
 
-    <a href="http://127.0.0.1:5000/managerLogin">
-        <div>Manager login</h4>
+    <!-- Carousel inner -->
+    <div class="carousel-inner">
+      <div class="item active">
+        <img class="img-responsive" src="static/expense.jpg" alt="slider">
+        <div class="slider-content">
+         
         </div>
-    </a>
+      </div>
+      <!--/ Carousel item end -->
+  <!---    <div class="item">
+        <img class="img-responsive" src="static/techimg.jpeg" alt="slider">
+        <div class="slider-content">
+          <div class="col-md-12 text-center">
+            
+          </div>
+        </div>
+      </div>
+      <!/ Carousel item end 
     
+
+    
+  </div>
+  <! /carousel -->
+</section>
+</div>
+{% endblock %}
+</div>
+
+
+
+
 </body>
+
 </html>

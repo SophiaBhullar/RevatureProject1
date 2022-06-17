@@ -10,6 +10,14 @@ app.secret_key="XYZ"
 def landing_page():
     return render_template("home.html")
 
+@app.route('/about', methods=["GET"])
+def landing_pagee():
+    return render_template("about.html")
+
+@app.route('/technology', methods=["GET"])
+def landing_pageee():
+    return render_template("technology.html")
+
 @app.route('/emplogin', methods=["GET"])
 def empLogin_page():
     return get_empLogin_page()
