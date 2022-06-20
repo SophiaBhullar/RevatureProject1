@@ -13,9 +13,13 @@
 8. As a manager, I want to accept/ decline the requests
 9. As a manager, I want to logout of the application
 
+# Kanban board link for user stories
+https://trello.com/b/50920EeC/project-1
+
 # Testing
 1. Behavior Driven Development 
 2. Test Driven Development
+3. Postman testing 
 
 # Tools and Technologies Required
 1. VS Code
