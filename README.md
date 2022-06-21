@@ -1,6 +1,8 @@
 # RevatureProject1
 
 # This is an Expense Reimbursement System
+- The goal was to create Expense Reimbursement System for the employees so that they can submit and view their requests that can be approved/declined by the manager.
+- Features were added such as employee can be able to delete the requests and manager can also be able to submit and view the requests.
 
 # User Stories
 1. As an employee, I want to login into the application.
@@ -18,16 +20,21 @@
 2. Test Driven Development
 
 # Tools and Technologies Required
-1. VS Code
-2. PostgreSQL
-3. AWS
-4. Virtual Environment
-4. Flask
-5. Psycopg2
-6. Pytest
-7. behave
-8. Selenium
-9. Postman
+1. CSS
+2. HTML
+3. VS Code
+4. Dbeaver
+5. PostgreSQL
+6. AWS
+7. Virtual Environment
+8. Python
+9. Flask
+10. Psycopg2
+11. Pytest
+12. behave
+13. Selenium
+14. Postman
+
 
 # Installation and how to run the project:
 1. In order to run successfully, install flask and virtual environment in addition to pytest, behave and selenium for testing purpose.

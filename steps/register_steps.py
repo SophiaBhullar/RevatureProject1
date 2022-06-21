@@ -22,7 +22,7 @@ def step_user_entered_valid_emp_id(context):
 @when(u'I input in a valid description')
 def step_user_entered_valid_description(context):
     valid_description = get_random_string(random.randint(1,100))
-    context.registrationpage.description_input().send_keys(valid_description)
+    context.registrationpage.description_input().send_keys("valid description")
 
 
 @when(u'I input in a valid amount')
